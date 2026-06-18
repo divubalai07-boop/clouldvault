@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudDrop Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fas fa-cloud"></i>
+                <h2>CloudDrop</h2>
+            </div>
+
+            <ul>
+                <li class="active">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </li>
+
+                <li>
+                    <i class="fas fa-folder"></i> Files
+                </li>
+
+                <li>
+                    <i class="fas fa-chart-pie"></i> Analytics
+                </li>
+
+                <li onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </li>
+            </ul>
+
+        </aside>
+
+        <!-- Main -->
+
+        <main class="main-content">
+
+            <div class="topbar">
+                <h1>
+                    Welcome,
+                    <span id="welcomeUser"></span>
+                </h1>
+            </div>
+
+            <!-- Cards -->
+
+            <div class="cards">
+
+                <div class="card">
+                    <i class="fas fa-file"></i>
+                    <h3>Total Files</h3>
+                    <h2 id="totalFiles">0</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-database"></i>
+                    <h3>Storage Used</h3>
+                    <h2 id="storageUsed">0 MB</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-upload"></i>
+                    <h3>Uploads</h3>
+                    <h2 id="uploadCount">0</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-download"></i>
+                    <h3>Downloads</h3>
+                    <h2 id="downloadCount">0</h2>
+                </div>
+
+            </div>
+
+            <!-- Upload -->
+
+            <div class="upload-section">
+
+                <h2>Upload Files</h2>
+
+                <input type="file" id="fileInput" multiple>
+
+                <button onclick="uploadFiles()">
+                    Upload
+                </button>
+
+            </div>
+
+            <!-- Chart -->
+
+            <div class="chart-box">
+
+                <h2>Storage Analytics</h2>
+
+                <canvas id="storageChart"></canvas>
+
+            </div>
+
+            <!-- Files Table -->
+
+            <div class="table-box">
+
+                <h2>My Files</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>File Name</th>
+                            <th>Size</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="fileTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
